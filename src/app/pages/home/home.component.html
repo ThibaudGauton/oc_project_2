@@ -1,3 +1,4 @@
-<h2>Olympic games app</h2>
-<hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
+<div>
+  <app-pie-chart *ngIf="selectedOlympic === null" [olympics$]="olympics$" (selectedCountry)="selectOlympic($event)"></app-pie-chart>
+  <app-line-chart *ngIf="selectedOlympic !== null" [olympic]="selectedOlympic" (return)="selectOlympic($event)"></app-line-chart>
+</div>

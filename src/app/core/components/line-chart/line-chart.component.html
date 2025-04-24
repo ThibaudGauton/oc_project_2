@@ -1,0 +1,15 @@
+<ng-template [ngIf]="!isReady" [ngIfElse]="ready">
+  <app-loader></app-loader>
+</ng-template>
+<ng-template #ready>
+  <div class="container">
+    <h1 class="hollow-title">{{ olympic.country }}</h1>
+    <div class="stats">
+      <app-stat-box label="Number of entries" [value]="numberOfEntries"></app-stat-box>
+      <app-stat-box label="Total number of medals" [value]="numberOfMedals"></app-stat-box>
+      <app-stat-box label="Total number of athletes" [value]="numberOfAthletes"></app-stat-box>
+    </div>
+
+      <button (click)="goBack()">Back</button>
+  </div>
+</ng-template>

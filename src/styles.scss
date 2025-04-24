@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+.hollow-title {
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: white;
+  background-color: #04838f;
+  padding: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 2rem;
+}

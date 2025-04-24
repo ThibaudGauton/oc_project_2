@@ -1,0 +1,16 @@
+<ng-template [ngIf]="!isReady" [ngIfElse]="ready">
+  <app-loader></app-loader>
+</ng-template>
+<ng-template #ready>
+  <div class="container">
+    <h1 class="hollow-title">Medals per country</h1>
+    <div class="stats">
+      <app-stat-box label="Number of JOs" [value]="numberOfJO"></app-stat-box>
+      <app-stat-box label="Number of countries" [value]="numberOfCountries"></app-stat-box>
+    </div>
+
+    <div *ngFor="let olympic of (olympics$|async)">
+      <button (click)="openDetailCountry(olympic)">{{ olympic?.country }}</button>
+    </div>
+  </div>
+</ng-template>
