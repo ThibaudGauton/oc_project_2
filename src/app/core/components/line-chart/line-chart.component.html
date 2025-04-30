@@ -3,13 +3,24 @@
 </ng-template>
 <ng-template #ready>
   <div class="container">
-    <h1 class="hollow-title">{{ olympic.country }}</h1>
+    <app-hollow-title [title]="title"></app-hollow-title>
     <div class="stats">
       <app-stat-box label="Number of entries" [value]="numberOfEntries"></app-stat-box>
       <app-stat-box label="Total number of medals" [value]="numberOfMedals"></app-stat-box>
       <app-stat-box label="Total number of athletes" [value]="numberOfAthletes"></app-stat-box>
     </div>
+    <ngx-charts-line-chart
+      *ngIf="(lineChartData$ | async) as data"
+      [results]="data"
+      [legend]="false"
+      [view]="[windowWidth,400]"
+      [xAxisLabel]="xAxisLabel"
 
-      <button (click)="goBack()">Back</button>
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [showXAxisLabel]="true"
+    ></ngx-charts-line-chart>
+    <button (click)="goBack()">Back</button>
   </div>
 </ng-template>

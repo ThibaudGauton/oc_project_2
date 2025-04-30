@@ -1,4 +1,4 @@
 <div>
-  <app-pie-chart *ngIf="selectedOlympic === null" [olympics$]="olympics$" (selectedCountry)="selectOlympic($event)"></app-pie-chart>
-  <app-line-chart *ngIf="selectedOlympic !== null" [olympic]="selectedOlympic" (return)="selectOlympic($event)"></app-line-chart>
+  <app-pie-chart *ngIf="(selectedOlympic$ | async) === null" [olympics$]="olympics$" (selectedCountry)="onOlympicSelected($event)"></app-pie-chart>
+  <app-line-chart *ngIf="(selectedOlympic$ | async) !== null" [olympic$]="selectedOlympic$" (return)="onOlympicSelected($event)"></app-line-chart>
 </div>

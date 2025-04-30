@@ -10,7 +10,7 @@ import { Olympic } from "../../core/models/Olympic";
 })
 export class HomeComponent implements OnInit {
   public olympics$: Observable<Olympic[]> = of([]);
-  public selectedOlympic!: Olympic|null;
+  public selectedOlympic$!: Observable<Olympic|null>;
 
   constructor(private olympicService: OlympicService) {}
 
@@ -22,10 +22,10 @@ export class HomeComponent implements OnInit {
       )
     ;
 
-    this.selectedOlympic = null;
+    this.selectedOlympic$ = of(null);
   }
 
-  public selectOlympic(olympic: Olympic|null) {
-    this.selectedOlympic = olympic;
+  onOlympicSelected(olympic: Olympic | null) {
+    this.selectedOlympic$ = of(olympic);
   }
 }
