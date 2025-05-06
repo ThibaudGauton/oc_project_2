@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {filter, map, Observable, of} from "rxjs";
 import { Olympic } from "../../models/Olympic";
 import { Color, ScaleType } from "@swimlane/ngx-charts";
@@ -12,7 +12,7 @@ import {tap} from 'rxjs/operators';
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss']
 })
-export class PieChartComponent implements OnInit {
+export class PieChartComponent implements OnInit, OnDestroy {
   @Input() public olympics$!: Observable<Olympic[]>;
   @Output() selectedCountry = new EventEmitter<Olympic>();
 
@@ -76,5 +76,8 @@ export class PieChartComponent implements OnInit {
         this.selectedCountry.emit(olympic);
       }
     });
+  }
+
+  ngOnDestroy(): void {
   }
 }
