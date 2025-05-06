@@ -30,7 +30,6 @@ export class LineChartComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.olympic$.subscribe(console.log);
     this.olympic$.subscribe(olympic => {
       if (olympic !== null) {
         this.title = olympic.country;
