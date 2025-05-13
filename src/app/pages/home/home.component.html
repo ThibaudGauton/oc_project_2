@@ -1,4 +1,11 @@
-<div>
-  <app-pie-chart *ngIf="(selectedOlympic$ | async) === null" [olympics$]="olympics$" (selectedCountry)="onOlympicSelected($event)"></app-pie-chart>
-  <app-line-chart *ngIf="(selectedOlympic$ | async) !== null" [olympic$]="selectedOlympic$" (return)="onOlympicSelected($event)"></app-line-chart>
-</div>
+<ng-template [ngIf]="errorMessage !== ''" [ngIfElse]="charts">
+  <div class="error-message">
+    <p>{{errorMessage}}</p>
+  </div>
+</ng-template>
+<ng-template #charts>
+  <div>
+    <app-pie-chart *ngIf="(selectedOlympic$ | async) === null" [olympics$]="olympics$" (selectedCountry)="onOlympicSelected($event)"></app-pie-chart>
+    <app-line-chart *ngIf="(selectedOlympic$ | async) !== null" [olympic$]="selectedOlympic$" (return)="onOlympicSelected($event)"></app-line-chart>
+  </div>
+</ng-template>
