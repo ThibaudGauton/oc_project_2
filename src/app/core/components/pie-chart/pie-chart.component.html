@@ -2,29 +2,31 @@
   <app-loader></app-loader>
 </ng-template>
 <ng-template #ready>
-  <div class="container">
-    <app-hollow-title [title]="title"></app-hollow-title>
-    <div class="stats">
-      <app-stat-box label="Number of JOs" [value]="numberOfJO"></app-stat-box>
-      <app-stat-box label="Number of countries" [value]="numberOfCountries"></app-stat-box>
-    </div>
+  <ng-template>
+    <div class="container">
+      <app-hollow-title [title]="title"></app-hollow-title>
+      <div class="stats">
+        <app-stat-box label="Number of JOs" [value]="numberOfJO"></app-stat-box>
+        <app-stat-box label="Number of countries" [value]="numberOfCountries"></app-stat-box>
+      </div>
 
-    <div class="chart">
-      <ngx-charts-pie-chart
-        [results]="pieChartData$ | async"
-        (select)="onChartClick($event)"
-        [view]="[windowWidth,400]"
-        [scheme]="colorScheme"
-        [legend]="false"
-        [legendTitle]="'Olympic Participation Report'"
-        [labels]="true"
-        [maxLabelLength]="MAX_LABEL_LENGTH"
-      >
-        <ng-template #tooltipTemplate let-model="model">
-          <div class="chart-tooltip">{{ model.name }}</div>
-          <div class="chart-tooltip"><i class="fa-solid fa-award"></i> {{ model.value }}</div>
-        </ng-template>
-      </ngx-charts-pie-chart>
+      <div class="chart">
+        <ngx-charts-pie-chart
+          [results]="pieChartData$ | async"
+          (select)="onChartClick($event)"
+          [view]="[windowWidth,400]"
+          [scheme]="colorScheme"
+          [legend]="false"
+          [legendTitle]="'Olympic Participation Report'"
+          [labels]="true"
+          [maxLabelLength]="MAX_LABEL_LENGTH"
+        >
+          <ng-template #tooltipTemplate let-model="model">
+            <div class="chart-tooltip">{{ model.name }}</div>
+            <div class="chart-tooltip"><i class="fa-solid fa-award"></i> {{ model.value }}</div>
+          </ng-template>
+        </ngx-charts-pie-chart>
+      </div>
     </div>
-  </div>
+  </ng-template>
 </ng-template>
