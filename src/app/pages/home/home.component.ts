@@ -34,9 +34,6 @@ export class HomeComponent implements OnInit {
     ;
 
     this.selectedOlympic$ = of(null);
-
-    this.selectedOlympic$.subscribe(console.log);
-    this.olympics$.subscribe(console.log);
   }
 
   onOlympicSelected(olympic: Olympic | null) {
