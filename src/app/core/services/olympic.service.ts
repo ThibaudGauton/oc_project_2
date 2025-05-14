@@ -25,6 +25,6 @@ export class OlympicService {
   }
 
   getOlympics(): Observable<Olympic[]|null> {
-    return of(null);
+    return this.olympics$.asObservable();
   }
 }

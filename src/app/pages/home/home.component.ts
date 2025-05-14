@@ -26,14 +26,17 @@ export class HomeComponent implements OnInit {
       .getOlympics()
       .pipe(
         map(olympics => olympics ? olympics : []),
-        tap(olympics => {
+        /*tap(olympics => {
           this.errorMessage = olympics.length === 0 ? 'Could not load data' : '';
           this.cdr.detectChanges();
-        }),
+        }),*/
       )
     ;
 
     this.selectedOlympic$ = of(null);
+
+    this.selectedOlympic$.subscribe(console.log);
+    this.olympics$.subscribe(console.log);
   }
 
   onOlympicSelected(olympic: Olympic | null) {
